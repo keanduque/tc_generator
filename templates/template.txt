@@ -1,8 +1,13 @@
 A Terms & Conditions Document
 
 This document is made of plaintext.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor ante in augue malesuada vestibulum. 
+Aenean ut bibendum quam. Etiam feugiat velit at pharetra tincidunt. Integer at justo augue. 
+Duis et fringilla quam. Aenean dictum dignissim condimentum. 
+
 Is made of [CLAUSE-3].
 Is made of [CLAUSE-4].
-Is made of [CLAUSE-1].
+Is made of [SECTION-1].
 
 Your legals.
