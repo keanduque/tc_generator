@@ -24,6 +24,8 @@ This app was made using PHP 8.2.4. Be sure to check their documentation.
     php -f App.php
     ```
 
+    **Sample Output based on template**
+
     ```output
         A Terms & Conditions Document
 
@@ -35,6 +37,9 @@ This app was made using PHP 8.2.4. Be sure to check their documentation.
 
         Is made of And dies.
         Is made of The white horse is white.
+        Is made of The quick brown fox, jumps over the lazy dog.
+
+        Your legals.
     ```
 
 3. **Run Test**
