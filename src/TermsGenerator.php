@@ -7,21 +7,27 @@
  * @link https://github.com/keanduque/tc_generator
  * @author Kean Duque
  */
+
+namespace App;
+
 class TermsGenerator
 {
-    // properties needed for passing data and template
-    private $template_file;
+    // private properties needed for passing data (clauses, sections) and template
+    private $template;
     private $clauses;
     private $sections;
 
     // initialize constructor for respective content and data for template
-    public function __construct($template_file, $clauses, $sections)
+    public function __construct($template_file = '', $clauses_data = '', $sections_data = '')
     {
-        $this->template_file = file_get_contents($template_file);
+        $this->template    = file_get_contents($template_file);
+        $this->clauses     = $clauses_data != "" ? json_decode(file_get_contents($clauses_data), true) : "no clauses available";
+        $this->sections    = $sections_data != "" ? json_decode(file_get_contents($sections_data), true) : "no section available";
+
         echo "<pre>";
-        var_dump($this->template_file);
+        var_dump($this->template);
+        var_dump($this->clauses);
+        var_dump($this->sections);
         echo "</pre>";
     }
 }
-
-$terms = new TermsGenerator('templates/template.txt', 'data/clauses.json', 'data/sections.json');
