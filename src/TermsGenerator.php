@@ -18,11 +18,12 @@ class TermsGenerator
     private $sections;
 
     // initialize constructor for respective content and data for template
-    public function __construct($template_file = '', $clauses_data = '', $sections_data = '')
+    public function __construct($template_file, $clauses_data, $sections_data,)
     {
         $this->template    = file_get_contents($template_file);
-        $this->clauses     = $clauses_data != "" ? json_decode(file_get_contents($clauses_data), true) : "no clauses available";
-        $this->sections    = $sections_data != "" ? json_decode(file_get_contents($sections_data), true) : "no section available";
+        $this->clauses     = json_decode(file_get_contents($clauses_data), true);
+        $this->sections    = json_decode(file_get_contents($sections_data), true);
+
         /*echo "<pre>";
         var_dump($this->template);
         var_dump($this->clauses);
@@ -37,13 +38,17 @@ class TermsGenerator
      */
     public function getClauseText($id)
     {
+
         foreach ($this->clauses as $clause) {
             // echo "<pre>";
             // var_dump($clause['id'] === $id);
             // echo "</pre>";
-            if ($clause['id'] === $id)
+            if ($clause['id'] == $id) {
+                //return $clause['text'] . ' ' . "{[$id]}";
                 return $clause['text'];
+            }
         }
+        return '';
     }
     /**
      * getting sections text by id to retrieve json file before passing to template
@@ -54,13 +59,52 @@ class TermsGenerator
     public function getSectionText($id)
     {
         foreach ($this->sections as $section) {
-            if ($section['id'] === $id) {
+            if ($section['id'] == $id) {
+                // map array from clausetext based on clauses_ids
                 $clausesTxt = array_map([$this, 'getClauseText'], $section['clauses_ids']);
                 $joinClauses = implode(', ', $clausesTxt);
                 return $joinClauses;
             }
         }
+        return '';
     }
+
+    /**
+     * create method for generating Clauses and Section together and assign to template 
+     * @method generateTC()
+     * @return mixed template document
+     */
+    public function generateTC()
+    {
+        $document_file = $this->template;
+
+        // Replace CLAUSE tags
+        $document_file = preg_replace_callback('/\[CLAUSE-(\d+)\]/', function ($matches) {
+            $clauseId = $matches[1];
+            return $this->getClauseText($clauseId);
+        }, $document_file);
+
+        // Replace SECTION tags
+        $document_file = preg_replace_callback('/\[SECTION-(\d+)\]/', function ($matches) {
+            $sectionId = $matches[1];
+            return $this->getSectionText($sectionId);
+        }, $document_file);
+
+        // $document_template =  $this->replaceTags($document_file, '/\[CLAUSE-(\d+)\]/', $this->getClauseText($clauseId));
+
+        return $document_file;
+    }
+
+    // public function replaceTags($template, $search_txt, $callback)
+    // {
+    //     // Replace CLAUSE tags
+    //     $document_file = preg_replace_callback($search_txt, function ($matches) {
+    //         $clauseId = $matches[1];
+    //         $callback($clauseId);
+    //     }, $template);
+
+    //     return $document_file;
+    // }
 }
 /*
 // Clauses data guide from var_dump: 
