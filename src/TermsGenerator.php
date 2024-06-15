@@ -18,17 +18,11 @@ class TermsGenerator
     private $sections;
 
     // initialize constructor for respective content and data for template
-    public function __construct($template_file, $clauses_data, $sections_data,)
+    public function __construct($template_file = '', $clauses_data = '', $sections_data = '')
     {
         $this->template    = file_get_contents($template_file);
-        $this->clauses     = json_decode(file_get_contents($clauses_data), true);
-        $this->sections    = json_decode(file_get_contents($sections_data), true);
-
-        /*echo "<pre>";
-        var_dump($this->template);
-        var_dump($this->clauses);
-        var_dump($this->sections);
-        echo "</pre>";*/
+        $this->clauses     = $clauses_data != '' ? json_decode(file_get_contents($clauses_data), true) : "no available clauses";
+        $this->sections    = $sections_data != '' ? json_decode(file_get_contents($sections_data), true) : "no available sections";
     }
     /**
      * getting clauses text by id to retrieve json file before passing to template
@@ -38,7 +32,6 @@ class TermsGenerator
      */
     public function getClauseText($id)
     {
-
         foreach ($this->clauses as $clause) {
             // echo "<pre>";
             // var_dump($clause['id'] === $id);
@@ -106,6 +99,7 @@ class TermsGenerator
     //     return $document_file;
     // }
 }
+
 /*
 // Clauses data guide from var_dump: 
 array(4) {

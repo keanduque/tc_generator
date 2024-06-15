@@ -14,5 +14,8 @@
             "name": "Kean Duque",
             "email": "vizen_27@yahoo.com"
         }
-    ]
+    ],
+    "scripts": {
+        "test": "phpunit --bootstrap vendor/autoload.php tests"
+    }
 }

@@ -1,8 +1,9 @@
 <?php
 
-require_once('../src/TermsGenerator.php');
 
 use PHPUnit\Framework\TestCase;
+
+require_once('../src/TermsGenerator.php');
 
 use App\TermsGenerator;
 

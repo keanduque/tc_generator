@@ -13,8 +13,34 @@ This app was made using PHP 8.2.4. Be sure to check their documentation.
 ## Setup and Usage
 
 1. **Install Dependencies**
+
     ```bash
     composer install
+    ```
+
+2. **Generate Document**
+
+    ```bash
+    php -f App.php
+    ```
+
+    ```output
+        A Terms & Conditions Document
+
+        This document is made of plaintext.
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor ante in augue malesuada vestibulum.
+        Aenean ut bibendum quam. Etiam feugiat velit at pharetra tincidunt. Integer at justo augue.
+        Duis et fringilla quam. Aenean dictum dignissim condimentum.
+
+        Is made of And dies.
+        Is made of The white horse is white.
+    ```
+
+3. **Run Test**
+
+    ```bash
+    composer test
     ```
 
 ## Other Tools & 3rd party Library
