@@ -26,7 +26,7 @@ final class TermsGeneratorTest extends TestCase
         $expectedDocument = "A Terms & Conditions Document\r\n\r\nThis document is made of plaintext.\r\nIs made of And dies.\r\nIs made of The white horse is white.\r\nIs made of The quick brown fox, jumps over the lazy dog.\r\n\r\nYour legals.";
         //$expectedDocument = "A Terms & Conditions Document\r\n\r\nThis document is made of plaintext.\r\nIs made of And dies.\r\nIs made of The white horse is white.\r\nIs made of The quick brown fox.\r\n\r\nYour legals.";
 
-        $this->assertEquals($expectedDocument, $this->generator->generateTC());
+        $this->assertEquals($expectedDocument, $this->generator->generateTC()); // compare expected value of template from actual value
     }
 
     public function testClauseReplacement()

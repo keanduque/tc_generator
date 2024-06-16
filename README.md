@@ -54,6 +54,39 @@ This simple app was made using PHP 8.2.4. Be sure to check their documentation.
     ./vendor/bin/phpunit tests
     ```
 
+## Non-Functional Requirements
+
+#### Design Decisions
+
+-   Code Best Practice: Implement PHP logic for clarity and maintainability using OO Concepts, maintain mehod types and strict declaration.
+
+-   File Data Structure: The application is structured to separate data which is clauses and sections for data of Terms & Conditions, the template which contains the format of the dummy Terms & Conditions.
+
+-   Flexibility: The TermsGenerator class is designed to be reusable with any dataset and template conforming to the specified format.
+
+-   Testing: PHPUnit is used to ensure the functionality works as expected and to prevent regressions.
+
+#### Development Time for Development
+
+-   The time i consume on this application for development is approximately almost 8 hours, including project setup, data analyzation, project planning, composer installation for PHPUnit Testing (since i dont have installed Testing Tool here on my local).
+
+#### Future Enhancement if i have given type
+
+-   Create Good Web Interface and User Experience for this Terms & Condition Generator for input and manage templates and datasets with the following:
+    -   add HTML Structure for Layout,
+    -   Button for generator,
+    -   responsive forms which you can input your username and email before the user generates the Terms & Conditions,
+    -   Pop-up modal for the Generated terms & conditions,
+    -   Designed Terms & Conditions Document
+-   Add more robust error handling for missing or malformed data.
+-   Support more complex tag types or additional formatting options.
+
+### Running the Application
+
+To run the application, follow the steps outlined in the `README.md` under Setup and Usage. This includes installing dependencies using Composer, generating the document via the command line, and running PHPUnit tests to verify functionality.
+
+This setup should provide a complete, functional, and testable Terms & Conditions Generator using PHP, adhering to the specified requirements.
+
 ## Other Tools & 3rd party Library
 
 -   only use PHPUnit, installed using composer init

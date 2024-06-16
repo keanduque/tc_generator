@@ -1,1 +1,1 @@
-{"version":1,"defects":{"TermsGeneratorTest::testClauseReplacement":7},"times":{"TermsGeneratorTest::testGenerate":0.002,"TermsGeneratorTest::testClauseReplacement":0,"TermsGeneratorTest::testSectionReplacement":0}}
+{"version":1,"defects":{"TermsGeneratorTest::testClauseReplacement":7},"times":{"TermsGeneratorTest::testGenerate":0.006,"TermsGeneratorTest::testClauseReplacement":0,"TermsGeneratorTest::testSectionReplacement":0}}

@@ -85,21 +85,8 @@ class TermsGenerator
             return $this->getSectionText($sectionId);
         }, $document_file);
 
-        // $document_template =  $this->replaceTags($document_file, '/\[CLAUSE-(\d+)\]/', $this->getClauseText($clauseId));
-
         return $document_file;
     }
-
-    // public function replaceTags($template, $search_txt, $callback)
-    // {
-    //     // Replace CLAUSE tags
-    //     $document_file = preg_replace_callback($search_txt, function ($matches) {
-    //         $clauseId = $matches[1];
-    //         $callback($clauseId);
-    //     }, $template);
-
-    //     return $document_file;
-    // }
 }
 
 /*
