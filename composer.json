@@ -6,15 +6,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Keanduque\\TcGenerator\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
         {
             "name": "Kean Duque",
-            "email": "vizen_27@yahoo.com"
+            "email": "kean_duque@yahoo.com"
         }
     ],
+    "config": {
+        "optimize-autoloader": true
+    },
     "scripts": {
         "test": "phpunit --bootstrap vendor/autoload.php tests"
     }

@@ -2,9 +2,11 @@
 
 ## Overview
 
-This is is a simplified app for Terms & Condition Generator based on iubenda tasks, that can able to generate template when executed.
+This is is a simplified app for Terms & Condition Generator based on iubenda tasks, that can able to generate template when executed using command line based on the instruction for take home challenge.
 
-This app was made using PHP 8.2.4. Be sure to check their documentation.
+This support phpunit named TermsGeneratorTest.php that you can run also in the terminal
+
+This simple app was made using PHP 8.2.4. Be sure to check their documentation.
 
 ## App Features:
 
@@ -24,7 +26,7 @@ This app was made using PHP 8.2.4. Be sure to check their documentation.
     php -f App.php
     ```
 
-    **Sample Output based on template**
+    **Sample Output based on template.txt**
 
     ```output
         A Terms & Conditions Document
@@ -45,12 +47,16 @@ This app was made using PHP 8.2.4. Be sure to check their documentation.
 3. **Run Test**
 
     ```bash
-    composer test
+    composer test  // OR
+
+    ./vendor/bin/phpunit tests/TermsGeneratorTest.php // OR
+
+    ./vendor/bin/phpunit tests
     ```
 
 ## Other Tools & 3rd party Library
 
--   only use PHPUnit installed using composer init
+-   only use PHPUnit, installed using composer init
 
 ## Contributing
 

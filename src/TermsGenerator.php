@@ -8,6 +8,8 @@
  * @author Kean Duque
  */
 
+declare(strict_types=1);
+
 namespace App;
 
 class TermsGenerator
@@ -18,7 +20,7 @@ class TermsGenerator
     private $sections;
 
     // initialize constructor for respective content and data for template
-    public function __construct($template_file = '', $clauses_data = '', $sections_data = '')
+    public function __construct(string $template_file, string $clauses_data, string $sections_data)
     {
         $this->template    = file_get_contents($template_file);
         $this->clauses     = $clauses_data != '' ? json_decode(file_get_contents($clauses_data), true) : "no available clauses";
@@ -27,10 +29,10 @@ class TermsGenerator
     /**
      * getting clauses text by id to retrieve json file before passing to template
      * @method getClauseText(id)
-     * @param int $id for clauses
+     * @param string $id for clauses
      * @return mixed JSON array for clauses data
      */
-    public function getClauseText($id)
+    public function getClauseText(string $id)
     {
         foreach ($this->clauses as $clause) {
             // echo "<pre>";
@@ -46,10 +48,10 @@ class TermsGenerator
     /**
      * getting sections text by id to retrieve json file before passing to template
      * @method getSectionText(id)
-     * @param int $id for sections
+     * @param string $id for sections
      * @return mixed JSON array for section data
      */
-    public function getSectionText($id)
+    public function getSectionText(string $id)
     {
         foreach ($this->sections as $section) {
             if ($section['id'] == $id) {
